@@ -16,7 +16,7 @@ vimを開く
 $ cd vimfiles/bundle/vimproc.vim  
 $ make -f make_unix.mak
 
-## シンボリックリングの生成
+## シンボリックリクの生成
 
 $ cd ~/  
 $ ln -s dotfiles/.vimrc .vimrc  
