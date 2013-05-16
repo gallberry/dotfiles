@@ -1,13 +1,14 @@
-# clone後にやること
+# はぢめてのdotfiles
 
-## neobundle を取得
+$ git clone git@github.com:gallberry/dotfiles.git
+
+## neobundle 取得 & 各種インストール
 
 $ cd vimfiles/bundle  
 $ git clone git://github.com/Shougo/neobundle.vim.git
 
-## neobundle定義プラグインインストール
 
-vimを開く
+vim起動してインストール
 
 :NeoBundleInstall
 
@@ -16,7 +17,7 @@ vimを開く
 $ cd vimfiles/bundle/vimproc.vim  
 $ make -f make_unix.mak
 
-## シンボリックリクの生成
+## シンボリックリンクの生成
 
 $ cd ~/  
 $ ln -s dotfiles/.vimrc .vimrc  
