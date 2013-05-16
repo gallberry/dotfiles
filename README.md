@@ -3,7 +3,7 @@
 ## neobundle を取得
 
 $ cd vimfiles/bundle  
-$ git clone git clone git://github.com/Shougo/neobundle.vim.git
+$ git clone git://github.com/Shougo/neobundle.vim.git
 
 ## neobundle定義プラグインインストール
 
