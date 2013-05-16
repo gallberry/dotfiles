@@ -55,11 +55,11 @@ if has('vim_starting')
   set runtimepath+=~/vimfiles/bundle/neobundle.vim/
   call neobundle#rc(expand('~/vimfiles/bundle/'))
 endif
-NeoBundle 'git://github.com/Shougo/neobundle.vim'
-NeoBundle 'git://github.com/Shougo/vimproc.git'
+NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
+NeoBundle 'git://github.com/Shougo/vimproc.vim.git'
 NeoBundle 'git://github.com/Shougo/unite.vim.git'
-NeoBundle 'git://github.com/Shougo/neocomplcache.git'
-NeoBundle 'git://github.com/Shougo/vimfiler.git'
+NeoBundle 'git://github.com/Shougo/neocomplcache.vim.git'
+NeoBundle 'git://github.com/Shougo/vimfiler.vim.git'
 filetype plugin indent on
 
 """" neocomplcache
