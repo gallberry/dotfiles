@@ -1,24 +1,26 @@
-# はぢめてのdotfiles
+## 概要
 
-$ git clone git@github.com:gallberry/dotfiles.git
+私(gallberry)のvim用設定ファイルでございます。
 
-## neobundle 取得 & 各種インストール
+    $ git clone git@github.com:gallberry/dotfiles.git
 
-$ cd vimfiles/bundle  
-$ git clone git://github.com/Shougo/neobundle.vim.git
+## After clone
+### neobundle インストール
 
+    $ cd vimfiles/bundle
+    $ git clone git://github.com/Shougo/neobundle.vim.git
 
-vim起動してインストール
+vim起動して各種プラグインをインストール
 
-:NeoBundleInstall
+    :NeoBundleInstall
 
-## vimproc.vim 設定
+### vimproc 設定
 
-$ cd vimfiles/bundle/vimproc.vim  
-$ make -f make_unix.mak
+    $ cd vimfiles/bundle/vimproc.vim
+    $ make -f make_unix.mak
 
-## シンボリックリンクの生成
+### symbolic link 作成
 
-$ cd ~/  
-$ ln -s dotfiles/.vimrc .vimrc  
-$ ln -s dotfiles/vimfiles vimfiles
+    $ cd ~/
+    $ ln -s dotfiles/.vimrc .vimr
+    $ ln -s dotfiles/vimfiles vimfiles
