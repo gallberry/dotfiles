@@ -1,6 +1,6 @@
 ﻿" Common -------------------------------
 set nocompatible                        " vi互換OFF
-colorscheme elflord                     " カラースキーマ設定
+colorscheme desert                      " カラースキーマ設定
 
 " File ---------------------------------
 set encoding=utf-8                      " 文字コード
@@ -70,6 +70,13 @@ endfunction
 "---------------------------------------
 nnoremap <Space>. :<C-u>tabedit ~/.vimrc<CR>
 
+"---------------------------------------
+" filetype settings
+"---------------------------------------
+augroup MyAutoCmd
+	autocmd!
+augroup END
+autocmd MyAutoCmd BufNewFile,BufRead *.phl setlocal filetype=php
 
 "---------------------------------------
 " plugin settings
