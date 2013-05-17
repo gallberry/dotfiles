@@ -1,55 +1,53 @@
-﻿"---------------------------------------
-" basic settings
-"---------------------------------------
-" Vi互換をオフ
-set nocompatible
-" クリップボードをWindowsと連携
-set clipboard=unnamed
-" カラースキーマ設定
-syntax on
-colorscheme desert
-" バックアップを作らないようにする
-set nobackup
-" 保存時に末尾の空白を除去
-autocmd BufWritePre * :%s/\s\+$//e
+﻿" Common -------------------------------
+set nocompatible                        " vi互換OFF
+colorscheme elflord                     " カラースキーマ設定
 
-"---------------------------------------
-" display settings
-"---------------------------------------
-" 自動インデント
-set autoindent
+" File ---------------------------------
+set encoding=utf-8                      " 文字コード
+set fileencodings=utf-8,euc-jp,iso-2022-jp,cp932,default
+set hidden                              " 編集中も他ファイル開けるように
+set noswapfile                          " swapファイルを作らない
+set nobackup                            " バックアップを作らない
+autocmd BufWritePre * :%s/\s\+$//ge     " 保存時に末尾の空白を除去
+syntax on                               " 構文色設定ON
+
+" Indent -------------------------------
+set autoindent                          " 自動インデント
 set smartindent
-" 行番号を表示
-set number
-" Tab幅
-set tabstop=4
+set tabstop=4                           " Tab幅
 set shiftwidth=4
-" カーソル行をハイライト
-set cursorline
-" 制御文字表示
-set list
+
+" Input Assist -------------------------
+set backspace=indent,eol,start          " BSで特殊記号も削除可能
+set whichwrap=b,s,h,l,<,>,[,]           " カーソルを行頭、行末で止まらないようにする
+set clipboard=unnamed,autoselect        " クリップボードをバッファで共有
+
+" View ---------------------------------
+set number                              " 行番号を表示
+set cursorline                          " カーソル行に下線表示
+set list                                " 制御文字表示
 set listchars=tab:>-,trail:~
-" カッコの対応
-set showmatch
-" ステータス表示
-set laststatus=2
+set showmatch                           " 括弧の対応をハイライト
+set nowrap                              " 画面端で折り返さない
+set showtabline=2                       " タブを常に表示
+
+" StatusLine ---------------------------
+set laststatus=2                        " 常に表示
 set statusline=%F%m%r%h%w
 set statusline+=%=
 set statusline+=[ft=%{&ft}][ff=%{&ff}]\[enc=%{&fileencoding}]\[pos=%v:%l/%L(%p%%)]
-" 画面端で折り返さない
-set nowrap
-" カーソルを行頭、行末で止まらないようにする
-set whichwrap=b,s,h,l,<,>,[,]
-" タブの表示(0:表示しない,1:2つ以上開いている時に表示,2:常に表示)
-set showtabline=2
+
+
+"---------------------------------------
+" key mapping
+"---------------------------------------
+nnoremap <Space>. :<C-u>tabedit ~/.vimrc<CR>
+
 
 "---------------------------------------
 " plugin settings
 "---------------------------------------
-"""" neobundle
-" !exec once
-" $ cd ~/dotfiles/vimfiles/bundle
-" $ git clone git://github.com/Shougo/neobundle.vim.git
+" neobundle ----------------------------
 filetype plugin indent off
 if has('vim_starting')
   set runtimepath+=~/vimfiles/bundle/neobundle.vim/
@@ -62,10 +60,10 @@ NeoBundle 'git://github.com/Shougo/neocomplcache.vim.git'
 NeoBundle 'git://github.com/Shougo/vimfiler.vim.git'
 filetype plugin indent on
 
-"""" neocomplcache
+" neocomplcache ------------------------
 let g:neocomplcache_enable_at_startup = 1
 
-"""" vimfiler
+" vimfiler -----------------------------
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_edit_action = 'tabopen'
 "noremap <C-e><C-x> :VimFiler -split -simple -winwidth=35 -no-quit
