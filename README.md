@@ -2,9 +2,16 @@
 
 私(gallberry)のvim用設定ファイルでございます。
 
-    $ git clone git@github.com:gallberry/dotfiles.git
+    $ git clone git://github.com/gallberry/dotfiles.git
 
-## After clone
+## clone その後に
+
+### symbolic link 作成
+
+    $ cd ~/
+    $ ln -s dotfiles/.vimrc .vimrc
+    $ ln -s dotfiles/vimfiles vimfiles
+
 ### neobundle インストール
 
     $ cd vimfiles/bundle
@@ -19,8 +26,6 @@ vim起動して各種プラグインをインストール
     $ cd vimfiles/bundle/vimproc.vim
     $ make -f make_unix.mak
 
-### symbolic link 作成
-
-    $ cd ~/
-    $ ln -s dotfiles/.vimrc .vimr
-    $ ln -s dotfiles/vimfiles vimfiles
+環境によってmake対象のファイルが異なるので注意
++ make_cygwin.mak
++ make_unix.mak
