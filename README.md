@@ -25,8 +25,13 @@ vim起動して各種プラグインをインストール
 
 ### vimproc 設定
 
-    $ cd vimfiles/bundle/vimproc.vim
+    $ cd ~/dotfiles/vimfiles
+    $ mkdir after
+    $ cd ./bundle/vimproc.vim
     $ make -f make_unix.mak
+    $ cp autoload/vimproc_xxx.yyy ../../after/
+    $ cp -r autoload/vimproc/ ../../after/
+    $ cp plugin/vimproc.vim ../../after/
 
 環境によってmake対象のファイルが異なるので注意
 + make_cygwin.mak
