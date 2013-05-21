@@ -38,7 +38,7 @@ set statusline=%F%m%r%h%w
 set statusline+=%=
 set statusline+=[ft=%{&ft}][ff=%{&ff}]\[enc=%{&fileencoding}]\[pos=%v:%l/%L(%p%%)]
 " When insert mode, change statusline
-let g:hi_insert = 'highlight StatusLine gui=None guifg=Black guibg=Yellow cterm=None ctermfg=Black ctermbg=Yellow'
+let g:hi_insert = 'highlight StatusLine gui=None guifg=LightCyan guibg=DarkCyan cterm=None ctermfg=LightCyan ctermbg=DarkCyan'
 if has('syntax')
 	augroup InsertHook
 		autocmd!
@@ -85,14 +85,20 @@ autocmd MyAutoCmd BufNewFile,BufRead *.phl setlocal filetype=php
 filetype plugin indent off
 if has('vim_starting')
   set runtimepath+=~/vimfiles/bundle/neobundle.vim/
-  call neobundle#rc(expand('~/vimfiles/bundle/'))
 endif
-NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
-NeoBundle 'git://github.com/Shougo/vimproc.vim.git'
-NeoBundle 'git://github.com/Shougo/unite.vim.git'
-NeoBundle 'git://github.com/Shougo/neocomplcache.vim.git'
-NeoBundle 'git://github.com/Shougo/vimshell.vim.git'
-NeoBundle 'git://github.com/Shougo/vimfiler.vim.git'
+call neobundle#rc(expand('~/vimfiles/bundle/'))
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc', {
+	\	'build': {
+	\		'cygwin': 'make -f make_cygwin.mak',
+	\		'mac'   : 'make -f make_mac.mak',
+	\		'unix'  : 'make -f make_unix.mak'
+	\	}
+	\}
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/vimfiler'
 filetype plugin indent on
 
 " neocomplcache ------------------------
