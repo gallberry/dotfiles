@@ -30,10 +30,19 @@ set listchars=tab:>-,trail:~
 set showmatch                           " 括弧の対応をハイライト
 set nowrap                              " 画面端で折り返さない
 set textwidth=0                         " 自動改行OFF
+highlight ZenkakuSpace gui=underline guibg=Red cterm=underline ctermfg=Red
+match ZenkakuSpace /　/                 " 全角スペースのハイライト
+
+" TabLine ------------------------------
 set showtabline=2                       " タブを常に表示
+"set tabline=%!MyTabLine()
+function! MyTabLine()
+endfunction
+function! MyTabLabel(n)
+endfunction
 
 " StatusLine ---------------------------
-set laststatus=2                        " 常に表示
+set laststatus=2                        " ステータスバーを常に表示
 set statusline=%F%m%r%h%w
 set statusline+=%=
 set statusline+=[ft=%{&ft}][ff=%{&ff}]\[enc=%{&fileencoding}]\[pos=%v:%l/%L(%p%%)]
@@ -106,9 +115,9 @@ let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_insert_char_pre = 1
 
 " vimfiler -----------------------------
-"let g:vimfiler_as_default_explorer = 1
-"let g:vimfiler_edit_action = 'tabopen'
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_edit_action = 'tabopen'
 "noremap <C-e><C-x> :VimFiler -split -simple -winwidth=35 -no-quit
 "autocmd VimEnter * VimFiler -split -simple -winwidth=35 -toggle -no-quit
-"nnoremap <F2> :VimFiler -simple -split -winwidth=35 -toggle -no-quit<CR>
+"nnoremap <F2> :VimFiler<CR>
 
