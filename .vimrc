@@ -35,10 +35,36 @@ match ZenkakuSpace /　/                 " 全角スペースのハイライト
 
 " TabLine ------------------------------
 set showtabline=2                       " タブを常に表示
-"set tabline=%!MyTabLine()
+highlight TabLineSel gui=None guifg=Gray guibg=DarkCyan cterm=None ctermfg=Gray ctermbg=DarkCyan
+highlight TabLine gui=None guifg=Gray guibg=Black cterm=None ctermfg=Gray ctermbg=Gray
+highlight TabLineFill gui=None guifg=Gray guibg=Black cterm=None ctermfg=Gray ctermbg=Black
+set tabline=%!MyTabLine()
 function! MyTabLine()
+	let titles = map(range(1, tabpagenr('$')), 'MyTabLabel(v:val)')
+	let sep = ' '
+	let info =''
+	return join(titles, sep).'%='.info
 endfunction
 function! MyTabLabel(n)
+	" バッファリスト取得
+	let buffs = tabpagebuflist(a:n)
+	let buffs_count = len(buffs)
+	" タブハイライト設定
+	let hl = a:n is tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
+	" タブ内の修正中バッファの有無
+	let mod = len(filter(copy(buffs), 'getbufvar(v:val, "&modified")')) ? '+' : ''
+	let no = buffs_count
+	if no is 1
+		let no = ''
+	endif
+	let no_mod = (no.mod) ==# '' ? '' : mod
+	" カレントバッファ
+	let current_buff = buffs[tabpagewinnr(a:n) - 1]
+	" パス除去
+	let fname = substitute(bufname(current_buff), '^.*/', '', '')
+	" ラベル生成
+	let label = fname.no_mod
+	return '%'.a:n.'T'.hl.label.'%T'.'%#TabLineFill#'
 endfunction
 
 " StatusLine ---------------------------
