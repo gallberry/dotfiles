@@ -41,7 +41,7 @@ highlight TabLineFill gui=None guifg=Gray guibg=Black cterm=None ctermfg=Gray ct
 set tabline=%!MyTabLine()
 function! MyTabLine()
 	let titles = map(range(1, tabpagenr('$')), 'MyTabLabel(v:val)')
-	let sep = ' '
+	let sep = ''
 	let info =''
 	return join(titles, sep).'%='.info
 endfunction
@@ -64,7 +64,7 @@ function! MyTabLabel(n)
 	let fname = substitute(bufname(current_buff), '^.*/', '', '')
 	" ラベル生成
 	let label = fname.no_mod
-	return '%'.a:n.'T'.hl.label.'%T'.'%#TabLineFill#'
+	return '%'.a:n.'T'.' '.a:n.hl.label.'%T'.'%#TabLineFill#'
 endfunction
 
 " StatusLine ---------------------------
@@ -104,6 +104,7 @@ endfunction
 " key mapping
 "---------------------------------------
 nnoremap <Space>. :<C-u>tabedit ~/.vimrc<CR>
+nnoremap <Tab><Tab> gt
 
 "---------------------------------------
 " filetype settings
