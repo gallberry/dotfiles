@@ -62,6 +62,7 @@ function! MyTabLabel(n)
 	let current_buff = buffs[tabpagewinnr(a:n) - 1]
 	" パス除去
 	let fname = substitute(bufname(current_buff), '^.*/', '', '')
+	let fname = fname is '' ? '[No Title]' : fname
 	" ラベル生成
 	let label = fname.no_mod
 	return '%'.a:n.'T'.' '.a:n.hl.label.'%T'.'%#TabLineFill#'
