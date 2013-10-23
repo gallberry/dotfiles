@@ -148,5 +148,13 @@ let g:vimfiler_as_default_explorer = 1
 "let g:vimfiler_edit_action = 'tabopen'
 "noremap <C-e><C-x> :VimFiler -split -simple -winwidth=35 -no-quit
 autocmd VimEnter * VimFilerCurrentDir -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit
-"nnoremap <F2> :VimFiler<CR>
+nnoremap <F2> :VimFilerCurrentDir -buffer-name=explorer -split -simple -winwidth=35 -toggle -no-quit<CR>
+
+" unite --------------------------------
+let g:unite_source_file_mru_limit = 50  " 最近開いたファイルの履歴数
+let g:unite_source_file_mru_filename_format = ''
+nnoremap [unite] <Nop>                  " unite prefix key
+nmap <Space>u [unite]
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
 
