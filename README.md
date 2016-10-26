@@ -11,14 +11,3 @@
     $ cd ~/
     $ ln -s dotfiles/.vimrc .vimrc
     $ ln -s dotfiles/vimfiles vimfiles
-
-### neobundle インストール
-
-*注* neobundleはvimのバージョンが7.0だと使えないっぽいです
-
-    $ cd vimfiles/bundle
-    $ git clone git://github.com/Shougo/neobundle.vim.git
-
-vim起動して各種プラグインをインストール
-
-    :NeoBundleInstall
