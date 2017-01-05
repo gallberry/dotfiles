@@ -46,7 +46,16 @@ set statusline+=[ft=%{&ft}][ff=%{&ff}]\[enc=%{&fileencoding}]\[pos=%v:%l/%L(%p%%
 " key mapping
 "---------------------------------------
 nnoremap <Space>. :<C-u>tabedit ~/.vimrc<CR>
-nnoremap <Tab><Tab> gt
+
+nnoremap <C-n> gt
+nnoremap <C-p> gT
+nnoremap <C-w> <C-w>w
+nnoremap <silent><C-n> :tabnew<CR>
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+nmap <Space> [unite]
+nnoremap <silent> [unite]t :<C-u>Unite<Space>tab<CR>
+nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
 
 "---------------------------------------
 " filetype settings
@@ -71,3 +80,9 @@ NeoBundle 'scrooloose/nerdtree'
 " --------
 call neobundle#end()
 filetype plugin indent on
+
+"---------------------------------------
+" NERDTree settings
+"---------------------------------------
+let NERDTreeShowHidden = 1
+autocmd VimEnter * if !argc() | NERDTree | endif
