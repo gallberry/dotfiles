@@ -6,5 +6,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific aliases and functions
-export LS_COLORS="no=00:fi=00:di=01;36:ln=01;34"
-
+alias ls='ls --color=auto'
+alias la='ls -la'
+alias ll='ls -l'
+alias vi='vim'

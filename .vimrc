@@ -24,7 +24,7 @@ set wildmenu                            " コマンドモードの補完
 
 " View ---------------------------------
 set number                              " 行番号を表示
-"set cursorline                          " カーソル行に下線表示
+set cursorline                          " カーソル行に下線表示
 set list                                " 制御文字表示
 set listchars=tab:>-,trail:~
 set showmatch                           " 括弧の対応をハイライト
