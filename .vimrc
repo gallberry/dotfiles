@@ -57,5 +57,17 @@ augroup END
 autocmd MyAutoCmd BufNewFile,BufRead *.phl setlocal filetype=php
 
 "---------------------------------------
-" plugin settings
+" neobundle settings
 "---------------------------------------
+if has('vim_starting')
+  set nocompatible
+  set runtimepath+=~/vimfiles/bundle/neobundle.vim
+endif
+call neobundle#begin(expand('~/vimfiles/bundle'))
+NeoBundleFetch 'Shougo/neobundle.vim'    " Let NeoBundle manage NeoBundle
+" --------
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'scrooloose/nerdtree'
+" --------
+call neobundle#end()
+filetype plugin indent on
