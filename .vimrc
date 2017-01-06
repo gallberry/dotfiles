@@ -1,4 +1,5 @@
 ﻿" File ---------------------------------
+set nocompatible
 scriptencoding utf-8                    " マルチバイト対応
 set encoding=utf-8                      " 文字コード
 set fileencoding=utf-8                  " 保存時の文字コード
@@ -69,7 +70,6 @@ autocmd MyAutoCmd BufNewFile,BufRead *.phl setlocal filetype=php
 " neobundle settings
 "---------------------------------------
 if has('vim_starting')
-  set nocompatible
   set runtimepath+=~/vimfiles/bundle/neobundle.vim
 endif
 call neobundle#begin(expand('~/vimfiles/bundle'))
@@ -77,6 +77,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'    " Let NeoBundle manage NeoBundle
 " --------
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'tomasr/molokai'
 " --------
 call neobundle#end()
 filetype plugin indent on
