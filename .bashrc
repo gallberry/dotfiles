@@ -9,7 +9,7 @@ fi
 if [ "$(uname)" = 'Darwin' ] || [ "$(uname)" = 'FreeBSD' ]; then
 	alias ls='ls -FG'
 else
-	alias ls='ls --color=auto -FG'
+	alias ls='ls --color=auto -F'
 fi
 alias la='ls -la'
 alias ll='ls -l'
