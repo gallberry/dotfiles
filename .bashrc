@@ -6,7 +6,11 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific aliases and functions
-alias ls='ls --color=auto'
+if [ "$(uname)" = 'Darwin' ]; then
+	alias ls='ls -FG'
+else
+	alias ls='ls --color=auto -FG'
+fi
 alias la='ls -la'
 alias ll='ls -l'
 alias vi='vim'
