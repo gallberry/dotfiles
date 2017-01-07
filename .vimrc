@@ -51,7 +51,6 @@ nnoremap <Space>. :<C-u>tabedit ~/.vimrc<CR>
 nnoremap <C-n> gt
 nnoremap <C-p> gT
 nnoremap <C-w> <C-w>w
-nnoremap <silent><C-n> :tabnew<CR>
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 nmap <Space> [unite]
