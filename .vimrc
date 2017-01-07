@@ -1,5 +1,5 @@
 ﻿" File ---------------------------------
-set nocompatible
+set nocompatible                        " vi互換モードOFF
 scriptencoding utf-8                    " マルチバイト対応
 set encoding=utf-8                      " 文字コード
 set fileencoding=utf-8                  " 保存時の文字コード
@@ -39,9 +39,13 @@ set showtabline=2                       " タブを常に表示
 
 " StatusLine ---------------------------
 set laststatus=2                        " ステータスバーを常に表示
-set statusline=%F%m%r%h%w
-set statusline+=%=
-set statusline+=[ft=%{&ft}][ff=%{&ff}]\[enc=%{&fileencoding}]\[pos=%v:%l/%L(%p%%)]
+set statusline=%!MyStatusLine()
+function! MyStatusLine()
+	let s ='%F%m%r%h%w'
+	let s .='%='
+	let s .='[ft=%{&ft}][ff=%{&ff}][enc=%{&fileencoding}][pos=%v:%l/%L(%p%%)]'
+	return s
+endfunction
 
 "---------------------------------------
 " key mapping
@@ -84,5 +88,5 @@ filetype plugin indent on
 "---------------------------------------
 " NERDTree settings
 "---------------------------------------
-let NERDTreeShowHidden = 1
-autocmd VimEnter * if !argc() | NERDTree | endif
+let NERDTreeShowHidden = 1              " Show hidden files
+" autocmd VimEnter * if !argc() | NERDTree | endif
