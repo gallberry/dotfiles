@@ -6,7 +6,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific aliases and functions
-if [ "$(uname)" = 'Darwin' ]; then
+if [ "$(uname)" = 'Darwin' ] || [ "$(uname)" = 'FreeBSD' ]; then
 	alias ls='ls -FG'
 else
 	alias ls='ls --color=auto -FG'
