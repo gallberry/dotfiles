@@ -7,6 +7,7 @@ fi
 
 # User specific aliases and functions
 if [ "$(uname)" = 'Darwin' ] || [ "$(uname)" = 'FreeBSD' ]; then
+	export LSCOLORS='GxFxDxDxhxDgDxabagacad'
 	alias ls='ls -FG'
 else
 	alias ls='ls --color=auto -F'
